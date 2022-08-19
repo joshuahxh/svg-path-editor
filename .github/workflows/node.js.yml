@@ -29,3 +29,18 @@ jobs:
     - run: npm ci
     - run: npm run build --if-present
     #- run: npm test // no need to do unit test
+    - name: Init new repo in dist folder and commit dist folder to it
+      run: |
+        cd dist
+        git init
+        git add -A
+        git config --local user.email "action@github.com"
+        git config --local user.name "Github Action"
+        git commit -m 'deploy'
+    - name: Force push to gh-pages
+      uses: ad-m/github-push-action@v0.5.0
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        branch: gh-pages
+        force: true
+        directory: dist/
