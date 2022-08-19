@@ -34,6 +34,7 @@ jobs:
         cd dist
         git init
         git add -A
+        git config --global --add safe.directory /github/workspace/dist
         git config --local user.email "action@github.com"
         git config --local user.name "Github Action"
         git commit -m 'deploy'
