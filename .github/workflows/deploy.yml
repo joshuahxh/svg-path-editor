@@ -39,7 +39,7 @@ jobs:
         git commit -m 'deploy'
         
     - name: add an exception for this directory 
-      run: git config --global --add safe.directory /github/workspace/dist
+      run: git config --global --add safe.directory "$GITHUB_WORKSPACE"
       
     # force push the contents of the wwwroot folder to the master branch
     - name: Force push to master
