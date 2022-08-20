@@ -50,10 +50,10 @@ jobs:
           # Repository name to push. Default or empty value represents current github repository (${GITHUB_REPOSITORY})
           # repository: # optional, default is
           # Destination branch to push changes
-          branch: gh-pages # optional, default is master
+          branch: wwwroot # optional, default is master
           # Determines if force push is used
           force: true
           # Directory to change to before pushing.
-          directory: ./dist
+          #directory: ./dist
 
 
