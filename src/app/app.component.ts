@@ -10,7 +10,7 @@ import { UploadImageComponent } from './upload-image/upload-image.component';
 import { ConfigService } from './config.service';
 import { browserComputePathBoundingBox } from './svg-bbox';
 
-export const kDefaultPath = `m1 0v-30a2 2 90 0 0 2 -2v-80a3 3 180 0 0 -6 0v80a2 2 90 0 0 2 2v30z`;
+export const kDefaultPath = `m1 0 0-10a1 1 0 001-1v-38a1 1 0 00-4 0v38a1 1 0 001 1v10z`;
 
 @Component({
   selector: 'app-root',
