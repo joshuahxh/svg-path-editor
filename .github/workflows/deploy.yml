@@ -38,9 +38,9 @@ jobs:
         git config --local user.name "GitHub Action"
         git commit -m 'deploy'
         
-    - name: add an exception for this directory 
-      run: |
-        git config --global --add safe.directory "*"
+    #- name: add an exception for this directory 
+    #  run: |
+    #    git config --global --add safe.directory "*"
       
     # force push the contents of the wwwroot folder to the master branch
     - name: Force push to gh-pages
