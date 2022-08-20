@@ -27,7 +27,7 @@ jobs:
       - name: Generate static files in dist
         uses: actions/setup-node@v1
         with:
-          node-version: '12.x'
+          node-version: '16.x'
       - run: npm i
       - run: npm run build
       
