@@ -34,7 +34,7 @@ jobs:
       # Create a fresh git repo in dist
       - name: Init new repo in dist and commit generated files
         run: |
-          cd dist
+          cd ./dist
           git init
           git add -A
           git config --local user.email "action@github.com"
