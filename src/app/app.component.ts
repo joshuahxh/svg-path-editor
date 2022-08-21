@@ -10,7 +10,14 @@ import { UploadImageComponent } from './upload-image/upload-image.component';
 import { ConfigService } from './config.service';
 import { browserComputePathBoundingBox } from './svg-bbox';
 
-export const kDefaultPath = `m1 0 0-10a1 1 0 001-1v-38a1 1 0 00-4 0v38a1 1 0 001 1v10z`;
+export const kDefaultPath = {
+  'Default': 'm1 0 0-10a1 1 0 001-1v-38a1 1 0 00-4 0v38a1 1 0 001 1v10z',
+  'Trapezoid': 'm2 0-1-40h-2l-1 40z',
+  'Arrow 1': 'm2 0-2-30-2 30z',
+  'Arrow 2': 'm1 0v-30h1l-2-3-2 3h1v30z',
+  'Arrow 3': 'm-2-2a3 3 0 104 0l-1-30-1-1.4-1 1.4z',
+  'sword': 'm-2-2a3 3 0 104 0l1-20-3-10-3 10z'
+};
 
 @Component({
   selector: 'app-root',
@@ -34,7 +41,7 @@ export class AppComponent implements AfterViewInit {
   controlPoints: SvgControlPoint[] = [];
 
   // Raw path:
-  _rawPath = this.storage.getPath()?.path || kDefaultPath;
+  _rawPath = this.storage.getPath()?.path || kDefaultPath['Default'];
   pathName: string = '';
   invalidSyntax = false;
 
@@ -84,8 +91,9 @@ export class AppComponent implements AfterViewInit {
     public cfg: ConfigService,
     private storage: StorageService
   ) {
+    if (storage.isEmpty()) for (const [key, value] of Object.entries(kDefaultPath)) storage.addPath(key, value);
     (window as any).browserComputePathBoundingBox = browserComputePathBoundingBox;
-    for (const icon of ['delete', 'logo', 'more', 'github', 'zoom_in', 'zoom_out', 'zoom_fit', 'sponsor']) {
+    for (const icon of ['delete', 'logo', 'more', 'github', 'zoom_in', 'zoom_out', 'zoom_fit', 'help']) {
       matRegistry.addSvgIcon(icon, sanitizer.bypassSecurityTrustResourceUrl(`./assets/${icon}.svg`));
     }
     this.parsedPath = new Svg('');
@@ -299,8 +307,8 @@ export class AppComponent implements AfterViewInit {
     }
 
     this.updateViewPort(
-      bbox.x - 1,
-      bbox.y - 1,
+      bbox.x + (bbox.width - w) / 2,
+      bbox.y + (bbox.height - h) / 2,
       w,
       h
     );

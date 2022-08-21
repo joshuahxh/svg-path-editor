@@ -57,7 +57,7 @@ export class ImportComponent implements OnInit {
 
   ngOnInit() {
     const openedPath = this.storageService.getPath();
-    const unsavedChanges = openedPath && openedPath.path !== kDefaultPath;
+    const unsavedChanges = openedPath && openedPath.path !== kDefaultPath['Default'];
     if(this.urlPath && this.urlPath !== openedPath?.path) {
       if(unsavedChanges) {
         this.openDialog();
