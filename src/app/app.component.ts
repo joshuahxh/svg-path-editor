@@ -11,12 +11,12 @@ import { ConfigService } from './config.service';
 import { browserComputePathBoundingBox } from './svg-bbox';
 
 export const kDefaultPath = {
-  'Default': 'm1 0 0-10a1 1 0 001-1v-38a1 1 0 00-4 0v38a1 1 0 001 1v10z',
-  'Trapezoid': 'm2 0-1-40h-2l-1 40z',
-  'Arrow 1': 'm2 0-2-30-2 30z',
-  'Arrow 2': 'm1 0v-30h1l-2-3-2 3h1v30z',
-  'Arrow 3': 'm-2-2a3 3 0 104 0l-1-30-1-1.4-1 1.4z',
-  'sword': 'm-2-2a3 3 0 104 0l1-20-3-10-3 10z'
+  'Default': 'm3 0 0-15c1 0 2-1 2-2l0-78a1 1 0 00-10 0l0 78c0 1 1 2 2 2l0 15z',
+  'Trapezoid': 'm5 0-3-105h-4l-3 105z',
+  'Arrow 1': 'm5 0-5-105-5 105z',
+  'Arrow 2': 'm4 0v-95h3l-7-10-7 10h3v95z',
+  'Arrow 3': 'm-4-4a3 3 0 108 0l-2-96-2-5-2 5z',
+  'sword': 'm-4-4a3 3 0 108 0l3-56-7-40-7 40z'
 };
 
 @Component({
