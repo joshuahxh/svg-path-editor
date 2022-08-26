@@ -41,7 +41,7 @@ export class AppComponent implements AfterViewInit {
   controlPoints: SvgControlPoint[] = [];
 
   // Raw path:
-  _rawPath = this.storage.getPath()?.path || kDefaultPath['Default'];
+  _rawPath = new URLSearchParams(window.location.search).get('path') || this.storage.getPath()?.path || kDefaultPath['Default'];
   pathName: string = '';
   invalidSyntax = false;
 
